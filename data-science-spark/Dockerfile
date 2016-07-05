@@ -36,4 +36,4 @@ RUN R --vanilla -e "\
 RUN conda install --quiet --yes \
     'seaborn' && conda clean -tipsy
 
-RUN pip install 'rpy2==2.8.*'
+RUN pip install 'rpy2==2.8.*' 'matplotlib_venn==0.11.*'
