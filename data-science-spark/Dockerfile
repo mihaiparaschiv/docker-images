@@ -20,10 +20,10 @@ RUN apt-get update && \
 
 USER $NB_USER
 
-RUN conda update --all --quiet --yes
+RUN conda update -n root --all --quiet --yes
 
 RUN conda config --add channels r && \
-    conda install --quiet --yes \
+    conda install -n root --quiet --yes \
     'r-base=3.2*' \
     'r-essentials=1*' \
     && conda clean -tipsy
@@ -33,7 +33,7 @@ RUN R --vanilla -e "\
     repos='http://cran.us.r-project.org', \
     lib='${CONDA_DIR}/lib/R/library')"
 
-RUN conda install --quiet --yes \
+RUN conda install -n root --quiet --yes \
     'seaborn' && conda clean -tipsy
 
-RUN pip install 'rpy2==2.8.*' 'matplotlib_venn==0.11.*'
+RUN pip3 install 'rpy2==2.8.*' 'matplotlib_venn==0.11.*'
